@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6482e29f5739a4741a4dbc8c0e9595a1
+timeCreated: 1550140730
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Astron Boy Wonder
+  fontNames:
+  - Astron Boy Wonder
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
