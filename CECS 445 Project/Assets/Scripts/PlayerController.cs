@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
 
     public GunController weapon;
+    public ForceFieldController shield;
 
     private Rigidbody2D player;
     private Vector2 movement;
     private float rotation;
 
+    public float posshieldx;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour
         movement =  new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
         // get rotation of player
         rotation = (Input.GetKey(KeyCode.Q) ? 1 : (Input.GetKey(KeyCode.E) ? -1 : 0)) * rotateSpeed;
+
+
 
         //weapon.isFiring = Input.GetKeyDown(KeyCode.Space);
         //weapon.isFiring = !Input.GetKeyUp(KeyCode.Space);
@@ -53,6 +57,17 @@ public class PlayerController : MonoBehaviour
         pos.x = Mathf.Clamp01(pos.x);
         pos.y = Mathf.Clamp01(pos.y);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null && (
+        collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy"))
+        {
+            collision.gameObject.GetComponent<HealthManager>().GetHurt(5); // need to defin amount of damage dealth
+            this.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage taken
+        }
     }
 }
     
