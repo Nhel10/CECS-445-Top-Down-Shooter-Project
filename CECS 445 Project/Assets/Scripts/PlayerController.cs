@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private float rotation;
 
-    public float posshieldx;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +31,6 @@ public class PlayerController : MonoBehaviour
         // get rotation of player
         rotation = (Input.GetKey(KeyCode.Q) ? 1 : (Input.GetKey(KeyCode.E) ? -1 : 0)) * rotateSpeed;
 
-
-
-        //weapon.isFiring = Input.GetKeyDown(KeyCode.Space);
-        //weapon.isFiring = !Input.GetKeyUp(KeyCode.Space);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             weapon.isFiring = true;
