@@ -37,6 +37,8 @@ public class GunController : MonoBehaviour
                 // deactivate collision between both collider
                 Physics2D.IgnoreCollision(bulletCollider, shieldCollider);
 
+                //try ignore collision between two bullets
+
                 newBullet.speed = speed;
             }
         }

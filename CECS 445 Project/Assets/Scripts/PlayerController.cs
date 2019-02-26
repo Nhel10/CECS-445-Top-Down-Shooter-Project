@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private float rotation;
 
+    public double currencyAmount; // for the test
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,12 +59,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision != null && (
-        collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy"))
+        if (collision != null)
         {
-            collision.gameObject.GetComponent<HealthManager>().GetHurt(5); // need to defin amount of damage dealth
-            this.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage taken
+            if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy")
+            {
+                collision.gameObject.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage dealth
+                this.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage taken
+            }
         }
+    }
+
+    public void pickUpCurrency(int currencyAmount)
+    {
+        this.currencyAmount += currencyAmount;
     }
 }
     
