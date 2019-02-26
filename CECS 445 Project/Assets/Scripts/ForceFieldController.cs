@@ -42,7 +42,7 @@ public class ForceFieldController : MonoBehaviour
             // prevent shield from colliding with the ship 
             Collider2D shipCollider = GetComponentInParent<PlayerController>().gameObject.transform.GetComponent<Collider2D>();
             Collider2D forceFieldCollider = shield.gameObject.transform.GetComponent<Collider2D>();
-
+                       
             Physics2D.IgnoreCollision(shipCollider, forceFieldCollider);
 
             // activing the shield once physics w/ ship is disabled

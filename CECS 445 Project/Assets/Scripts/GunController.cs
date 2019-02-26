@@ -30,6 +30,13 @@ public class GunController : MonoBehaviour
             {
                 shotCounter = timeBetweenShot;
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
+
+                // get the collider from the shield and the created bullet
+                Collider2D bulletCollider = newBullet.gameObject.transform.GetComponent<Collider2D>();
+                Collider2D shieldCollider = GetComponentInParent<PlayerController>().GetComponentInChildren<ForceFieldController>().shield.gameObject.transform.GetComponent<Collider2D>();
+                // deactivate collision between both collider
+                Physics2D.IgnoreCollision(bulletCollider, shieldCollider);
+
                 newBullet.speed = speed;
             }
         }

@@ -14,22 +14,6 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         bullet = GetComponent<Rigidbody2D>();
-
-        Collider2D bulletCollider = bullet.gameObject.transform.GetComponent<Collider2D>();
-        //Debug.Log(bulletCollider);
-
-        // can't acces to the shield component to get the 2D collider
-
-        // try get the ship
-        //Collider2D shieldCollider = GetComponentInParent<PlayerController>().gameObject.transform.GetComponent<Collider2D>();
-        //Debug.Log(GetComponentInParent<Rigidbody2D>().GetComponentInParent<GunController>());
-
-        // try to get bullet->gun->player->shield || should be gameobject.parent.parent.children.shield.physic ??
-        //Debug.Log(gameObject.GetComponentsInParent<BulletController>());
-
-
-        //Debug.Log(gameObject.GetComponent<BulletController>()); // got the bullet
-        //prevent bullet from colliding with another one
     }
 
     // Update is called once per frame

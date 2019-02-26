@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{99A1F87F-2DE1-2134-14FD-6B3CFB957CC3}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BulletController.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="34" Column="9" />
-      <File FileName="Assets/Scripts/BulletController.cs" Line="25" Column="97" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="49" Column="1" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="29" Column="1" />
       <File FileName="Assets/Scripts/HealthManager.cs" Line="12" Column="32" />
       <File FileName="Assets/Scripts/GunController.cs" Line="5" Column="27" />
-      <File FileName="Assets/Scripts/ForceFieldController.cs" Line="46" Column="34" />
-      <File FileName="Assets/Scripts/ShieldManager.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/ForceFieldController.cs" Line="48" Column="40" />
+      <File FileName="Assets/Scripts/ShieldManager.cs" Line="18" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
