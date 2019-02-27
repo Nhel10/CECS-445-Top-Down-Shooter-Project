@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\HealthManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ShieldManager.cs" />
+    <Compile Include="Assets\Scripts\SpawnController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/wadeln/Documents/Software Design and Architecture/CECS-445-Top-Down-Shooter-Project/CECS 445 Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
