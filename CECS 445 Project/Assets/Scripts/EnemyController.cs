@@ -41,4 +41,9 @@ public class EnemyController : MonoBehaviour
         float mult = Random.Range(level / 2f, level * earning);
         newLoot.SetCurrencyAmount(mult * basicAmount);
     }
+
+    private void OnBecameInVisible()
+    {
+        Destroy(gameObject);
+    }
 }
