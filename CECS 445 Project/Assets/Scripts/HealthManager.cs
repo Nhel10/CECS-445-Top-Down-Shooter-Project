@@ -5,6 +5,7 @@ public class HealthManager : MonoBehaviour
 {
     public float health;
     private float currentHealth;
+    public Slider healthSlider;
 
     // Use this for initialization
     void Start()
