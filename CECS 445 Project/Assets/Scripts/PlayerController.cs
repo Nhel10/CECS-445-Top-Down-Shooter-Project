@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
 
     public GunController weapon;
-    public ForceFieldController shield;
+    //public ForceFieldController shield;
 
     private Rigidbody2D player;
     private Vector2 movement;

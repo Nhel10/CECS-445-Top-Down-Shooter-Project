@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5881773616876858229}
   - component: {fileID: 5881773616876858230}
   - component: {fileID: 2584038924976309197}
-  - component: {fileID: 5881773616876858231}
   m_Layer: 0
   m_Name: Shield
   m_TagString: ForceField
@@ -132,16 +131,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04b9050bf54f4cd7a4a0ad38c57a36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5881773616876858231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5881773616876858219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60bdcf422c6b147cfb34ac075dff5a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10

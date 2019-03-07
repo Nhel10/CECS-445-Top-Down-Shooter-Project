@@ -33,9 +33,18 @@ public class GunController : MonoBehaviour
 
                 // get the collider from the shield and the created bullet
                 Collider2D bulletCollider = newBullet.gameObject.transform.GetComponent<Collider2D>();
-                Collider2D shieldCollider = GetComponentInParent<PlayerController>().GetComponentInChildren<ForceFieldController>().shield.gameObject.transform.GetComponent<Collider2D>();
-                // deactivate collision between both collider
-                Physics2D.IgnoreCollision(bulletCollider, shieldCollider);
+
+                ForceFieldController forceField = GetComponentInParent<PlayerController>().GetComponentInChildren<ForceFieldController>();
+
+                if (forceField != null)
+                {
+                    Collider2D shieldCollider = forceField.shield.gameObject.transform.GetComponent<Collider2D>();
+                    // deactivate collision between both collider
+                    if (shieldCollider != null)
+                    {
+                        Physics2D.IgnoreCollision(bulletCollider, shieldCollider);
+                    }
+                }
 
                 //TODO Ignore collision between two bullets
 
