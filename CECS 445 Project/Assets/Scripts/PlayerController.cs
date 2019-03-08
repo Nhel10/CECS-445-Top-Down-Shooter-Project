@@ -9,11 +9,19 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
 
     public GunController weapon;
-    //public ForceFieldController shield;
+    public ForceFieldController forceField;
 
     private Rigidbody2D player;
     private Vector2 movement;
     private float rotation;
+
+    //customized key input for control
+    public KeyCode forward;
+    public KeyCode backward;
+    public KeyCode left;
+    public KeyCode right;
+    public KeyCode shoot;
+    public KeyCode shield;
 
     public double currencyAmount; // for the test
 
@@ -26,20 +34,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // improve it ? readability
 
-        // get movement of player
-        movement =  new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+        movement = new Vector2(0, Input.GetKey(forward) ? 1 : Input.GetKey(backward) ? -1 : 0) * speed;
         // get rotation of player
-        rotation = (Input.GetKey(KeyCode.Q) ? 1 : (Input.GetKey(KeyCode.E) ? -1 : 0)) * rotateSpeed;
+        rotation = (Input.GetKey(left) ? 1 : (Input.GetKey(right) ? -1 : 0)) * rotateSpeed;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(shoot))
         {
             weapon.isFiring = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        } else if (Input.GetKeyUp(shoot))
         {
             weapon.isFiring = false;
+        }
+
+        if (Input.GetKeyDown(shield))
+        {
+            forceField.isDeployed = true;
+        } else if (Input.GetKeyUp(shield))
+        {
+            forceField.isDeployed = false;
         }
     }
 

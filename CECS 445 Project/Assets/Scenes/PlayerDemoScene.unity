@@ -112,6 +112,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &229947483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8235839334030540847, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8235839333855148148}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f0d34b3695444fbb58cf23e6a40483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1064646917
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141970, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8235839335103141983, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -314,5 +331,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: forward
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: backward
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: left
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: right
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: shoot
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: shield
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235839335103141971, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3,
+        type: 3}
+      propertyPath: forceField
+      value: 
+      objectReference: {fileID: 229947483}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fed8ce4c3df844a8965c7fe9a64ffd3, type: 3}

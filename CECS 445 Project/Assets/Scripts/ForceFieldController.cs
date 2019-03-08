@@ -23,16 +23,6 @@ public class ForceFieldController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            isDeployed = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isDeployed = false;
-        }
-
         if (isDeployed)
         {
             // set the position of the shield in the position of the ship (centered shield/deflector)
