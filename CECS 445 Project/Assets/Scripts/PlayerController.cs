@@ -76,8 +76,8 @@ public class PlayerController : MonoBehaviour
         {
             if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy")
             {
-                collision.gameObject.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage dealth
-                this.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage taken
+                //collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage dealth
+                this.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage taken
             }
         }
     }
@@ -87,4 +87,3 @@ public class PlayerController : MonoBehaviour
         this.currencyAmount += currencyAmount;
     }
 }
-    
