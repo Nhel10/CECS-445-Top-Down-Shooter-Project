@@ -13,7 +13,7 @@ public class PlayerHealthManager : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.UpdateBar(currentHealth,maxHealth);
+        healthBar.UpdateBar( currentHealth, maxHealth );
     }
 
     // Update is called once per frame
@@ -28,6 +28,6 @@ public class PlayerHealthManager : MonoBehaviour
     public void GetHurt(float damage)
     {
         currentHealth -= damage;
-        healthBar.UpdateBar(currentHealth,maxHealth);
+        healthBar.UpdateBar( currentHealth, maxHealth );
     }
 }
