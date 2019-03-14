@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 80ac9960cf00cf34888aaf3d180d0933
+timeCreated: 1550141301
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: They Perished
+  fontNames:
+  - They Perished
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
