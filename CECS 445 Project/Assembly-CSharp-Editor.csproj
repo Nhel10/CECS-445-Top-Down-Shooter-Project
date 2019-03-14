@@ -53,8 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Simple Health Bar\Editor\SimpleHealthBarEditor.cs" />
-     <Compile Include="Assets\Simple Health Bar\Editor\SimpleHealthBarWindow.cs" />
+     <Compile Include="Assets\File Folder\Simple Health Bar\Editor\SimpleHealthBarEditor.cs" />
+     <Compile Include="Assets\File Folder\Simple Health Bar\Editor\SimpleHealthBarWindow.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Neru/Documents/GitHub/CECS-445-Top-Down-Shooter-Project/CECS 445 Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
