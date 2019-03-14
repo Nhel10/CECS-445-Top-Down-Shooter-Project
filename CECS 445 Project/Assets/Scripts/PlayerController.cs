@@ -9,13 +9,22 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
 
     public GunController weapon;
-    public ForceFieldController shield;
+    public ForceFieldController forceField;
 
     private Rigidbody2D player;
     private Vector2 movement;
     private float rotation;
 
-    public float posshieldx;
+    //customized key input for control
+    public KeyCode forward;
+    public KeyCode backward;
+    public KeyCode left;
+    public KeyCode right;
+    public KeyCode shoot;
+    public KeyCode shield;
+
+    public double currencyAmount; // for the test
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,24 +34,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // improve it ? readability
 
-        // get movement of player
-        movement =  new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+        movement = new Vector2(0, Input.GetKey(forward) ? 1 : Input.GetKey(backward) ? -1 : 0) * speed;
         // get rotation of player
-        rotation = (Input.GetKey(KeyCode.Q) ? 1 : (Input.GetKey(KeyCode.E) ? -1 : 0)) * rotateSpeed;
+        rotation = (Input.GetKey(left) ? 1 : (Input.GetKey(right) ? -1 : 0)) * rotateSpeed;
 
-
-
-        //weapon.isFiring = Input.GetKeyDown(KeyCode.Space);
-        //weapon.isFiring = !Input.GetKeyUp(KeyCode.Space);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(shoot))
         {
             weapon.isFiring = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        } else if (Input.GetKeyUp(shoot))
         {
             weapon.isFiring = false;
+        }
+
+        if (Input.GetKeyDown(shield))
+        {
+            forceField.isDeployed = true;
+        } else if (Input.GetKeyUp(shield))
+        {
+            forceField.isDeployed = false;
         }
     }
 
@@ -65,9 +75,11 @@ public class PlayerController : MonoBehaviour
         if (collision != null && (
         collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy"))
         {
-            collision.gameObject.GetComponent<HealthManager>().GetHurt(5); // need to defin amount of damage dealth
-            this.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage taken
+            if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy")
+            {
+                //collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage dealth
+                this.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage taken
+            }
         }
     }
 }
-    

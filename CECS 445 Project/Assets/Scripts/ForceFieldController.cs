@@ -22,16 +22,6 @@ public class ForceFieldController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            isDeployed = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isDeployed = false;
-        }
-
         if (isDeployed)
         {
             Vector3 newpos = GetComponentInParent<PlayerController>().gameObject.transform.position;

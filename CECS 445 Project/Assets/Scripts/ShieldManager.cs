@@ -15,4 +15,12 @@ public class ShieldManager : MonoBehaviour
     void Update()
     {
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null && (collision.gameObject.tag != "Player" || collision.gameObject.tag != "ForceField"))
+        {
+            collision.gameObject.GetComponent<HealthManager>().GetHurt(5); // need to define amount of damage dealth
+        }
+    }
 }
