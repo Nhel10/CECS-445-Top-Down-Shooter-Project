@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Main_Menu_Folder/Scenes/Game Scene.unity
+- path: Assets/File Folder/Scenes/PlayerDemoScene.unity
   isLoaded: 1
   isActive: 1
