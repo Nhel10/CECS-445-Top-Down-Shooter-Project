@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public CurrencyController currency;
 
     private Rigidbody2D enemy;
+
     // Use this for initialization
     void Start()
     {
@@ -23,29 +24,35 @@ public class EnemyController : MonoBehaviour
         randomPos[0] = this.enemy.gameObject.transform.position;
         randomPos[4] = new Vector2(-this.enemy.gameObject.transform.position.x, -this.enemy.gameObject.transform.position.y);
 
-        /********************************************************************************\
-         * for Bezier : set 3 random point within screenview (start + end being         *
-         * spawn point and opposite on circle) || may need to define less randomised    *
-         * point  e.g. choose three point from the vector start-end (each evenly        *
-         * separated) from theese point choose a circle that is from e.g. 5 and         *
-         * 10 of radius and choose a point on theses circles either around 90 or -90    *
-         * degreen +- 10 degree in order to create a sort of sinusoidal curve           *
-        \********************************************************************************/
-        for (int i = 1; i < 4; ++i)
+        // STEP 1 : SET point along the path drawn from randomPos[0] to randomPos[4] EVENTLY separated
+        for (int i = 1; i < 4; i++) { randomPos[i] = (randomPos[4] - randomPos[0]) * .25f * i + randomPos[0]; }
+
+        // TODO : change the enemy behaviour with pathfinding toward player or spiral movement (avoid collision that way)
+        for (int i = 1; i < 4; i++)
         {
-            Vector3 screenPos = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), 0));
-            randomPos[i].x = screenPos.x;
-            randomPos[i].y = screenPos.y;
+            // STEP 2; SET circle (C1, C2, C3, C4) CENTERED RESPECTIVELY at P1, P2, P3 and P4 with radius R : min < R < max
+            float tmpRadius = Random.Range(5, 10);
+
+            // STEP 3: SET whether the landmark should be on LEFT or RIGHT of this circle (+/- 90 degrees)
+            float side = Random.Range(-1, 1) < 0 ? -90 : 90;
+
+            // STEP 4: SET a random angle within range to set a "randomized" position on this cicle (in the range)
+            float tmpAngle = Random.Range(-15, 15);
+
+            // STEP 5: GET the angle between the path and the VECTOR UP
+            float anglePath = GetRotationFromPath(randomPos[4] - randomPos[0]);
+
+            // STEP 6: sum all angle to get the point on the circle where the landmark should be placed
+            float finalAngle = side + tmpAngle + anglePath;
+
+            // need to test if value are all good
+            randomPos[i] = new Vector2(tmpRadius * Mathf.Cos(finalAngle), tmpRadius * Mathf.Sin(finalAngle)) + randomPos[i];
         }
-        // Debug Line
-        //Debug.DrawLine(randomPos[0], randomPos[4], Color.white, 20.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //choosing bézier curve as enemy behaviour
-        // may use another behaviour (e.g. spiral)
         t += Time.deltaTime;
         Vector2 newPos = BezierCurvePath();
 
@@ -60,7 +67,6 @@ public class EnemyController : MonoBehaviour
 
     Vector2 BezierCurvePath()
     {
-        // May need to choose another behaviour for faster code
         Vector2[] Qs = new Vector2[4];
         Vector2[] Rs = new Vector2[3];
         Vector2[] Ss = new Vector2[2];
@@ -95,6 +101,7 @@ public class EnemyController : MonoBehaviour
             float rotation = GetRotationFromPosition(player.transform.position);
             transform.rotation = Quaternion.Euler(0, 0, rotation);
         }
+        // TODO
         // move toward direction (need to know position t+1 for vector)
     }
 
@@ -104,5 +111,10 @@ public class EnemyController : MonoBehaviour
         float angle = Vector2.Angle(Vector2.up, enemyPosition - playerPosition);
 
         return (playerPosition.x < enemyPosition.x) ? -angle : angle;
+    }
+
+    private float GetRotationFromPath(Vector2 pathVector)
+    {
+        return Vector2.Angle(Vector2.up, pathVector);
     }
 }
