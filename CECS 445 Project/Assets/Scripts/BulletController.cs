@@ -14,13 +14,6 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         bullet = GetComponent<Rigidbody2D>();
-        // prevent bullet from colliding with shield
-        Physics2D.IgnoreCollision(
-            gameObject.transform.GetComponent<Collider2D>(),
-            GetComponentInParent<GunController>().GetComponentInParent<PlayerController>().GetComponentInChildren<ForceFieldController>().shield.transform.GetComponent<Collider2D>()
-           );
-
-        //prevent bullet from colliding with another one
     }
 
     // Update is called once per frame

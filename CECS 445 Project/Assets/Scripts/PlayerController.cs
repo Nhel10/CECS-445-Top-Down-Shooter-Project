@@ -22,13 +22,17 @@ public class PlayerController : MonoBehaviour
     public KeyCode right;
     public KeyCode shoot;
     public KeyCode shield;
+    public KeyCode toggle;
 
     public double currencyAmount; // for the test
+
+    public GameObject ScoreboardController;
 
     // Start is called before the first frame update
     void Start()
     {
         this.player = GetComponent<Rigidbody2D>();
+        ScoreboardController.SetActive(false);
     }
 
     // Update is called once per frame
@@ -54,6 +58,14 @@ public class PlayerController : MonoBehaviour
         {
             forceField.isDeployed = false;
         }
+        if (Input.GetKeyDown(toggle))
+        {
+            ScoreboardController.SetActive(true);
+        }
+        if (Input.GetKeyUp(toggle))
+        {
+            ScoreboardController.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -72,8 +84,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision != null && (
-        collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy"))
+        if (collision != null)
         {
             if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy")
             {
@@ -81,5 +92,10 @@ public class PlayerController : MonoBehaviour
                 this.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage taken
             }
         }
+    }
+
+    public void pickUpCurrency(int currencyAmount)
+    {
+        this.currencyAmount += currencyAmount;
     }
 }

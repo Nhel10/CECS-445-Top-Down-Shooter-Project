@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthManager : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
     public SimpleHealthBar healthBar;
-
+    public GameObject gameover;
 
     // Use this for initialization
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.UpdateBar( currentHealth, maxHealth );
+        gameover.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class PlayerHealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            gameover.SetActive(true);
         }
     }
 
@@ -29,5 +32,9 @@ public class PlayerHealthManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.UpdateBar( currentHealth, maxHealth );
+    }
+    public float getHP()
+    {
+        return currentHealth;
     }
 }
