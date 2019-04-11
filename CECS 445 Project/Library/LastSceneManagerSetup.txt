@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Merge Folder/test.unity
+- path: Assets/Enemy AI/test.unity
   isLoaded: 1
   isActive: 1
