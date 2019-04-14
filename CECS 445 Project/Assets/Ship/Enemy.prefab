@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2681404746913289846}
   - component: {fileID: 2681404746913289844}
   - component: {fileID: 2681404746913289849}
+  - component: {fileID: 6768123331134350105}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -161,6 +162,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!95 &6768123331134350105
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681404746913289850}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b4a7fb9a0e0e420c9daa8bb8025b80f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2681404746917000752
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2681404747550013997}
   - component: {fileID: 2681404747550013995}
+  - component: {fileID: 6283246194094665330}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Enemy
@@ -339,3 +360,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6283246194094665330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681404747550013998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d08c95a96553d4e9aadbfb23bd2e271f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
