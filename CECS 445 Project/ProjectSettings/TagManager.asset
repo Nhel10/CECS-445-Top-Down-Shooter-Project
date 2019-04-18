@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Asteroid
   - ForceField
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

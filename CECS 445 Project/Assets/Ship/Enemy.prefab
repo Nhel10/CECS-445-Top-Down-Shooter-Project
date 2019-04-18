@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2681404746913289846}
   - component: {fileID: 2681404746913289844}
   - component: {fileID: 2681404746913289849}
-  m_Layer: 0
+  - component: {fileID: 6650709563308271170}
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 2
-  speed: 1
+  speed: 3
   currency: {fileID: 1216286926759926177, guid: b3fe8b6ea46024a29b95dbdf94ee5ecf,
     type: 3}
 --- !u!114 &2681404746913289849
@@ -161,6 +162,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &6650709563308271170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681404746913289850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec075888fd39c4e438a92935d03cf011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletOffset: {x: 0, y: 0.5, z: 0}
+  bulletPrefab: {fileID: 2565948512319412226, guid: 9475fc33672ca3b41aea5f57d4ee9103,
+    type: 3}
+  fireDelay: 0.5
 --- !u!1 &2681404746917000752
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2681404746917000751}
   - component: {fileID: 2681404746917000750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2681404747550013997}
   - component: {fileID: 2681404747550013995}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ship
   m_TagString: Enemy
   m_Icon: {fileID: 0}

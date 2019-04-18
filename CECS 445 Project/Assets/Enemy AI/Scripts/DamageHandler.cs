@@ -28,7 +28,7 @@ public class DamageHandler : MonoBehaviour {
     }
 
     void OnTriggerEnter2D() {
-      Debug.LogError("Enemy has taken damage!");
+      //Debug.LogError("Enemy has taken damage!");
     	health--;
 
     	if(invulnPeriod > 0) {

@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy")
             {
                 //collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage dealth
-                this.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage taken
+                this.GetComponent<PlayerHealthManager>().GetHurt(1); // need to define amount of damage taken
             }
         }
     }

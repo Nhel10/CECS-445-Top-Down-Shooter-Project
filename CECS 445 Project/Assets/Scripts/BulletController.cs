@@ -10,6 +10,10 @@ public class BulletController : MonoBehaviour
 
     public float damage;
 
+    public bool enemyBullet;
+
+    public bool playerBullet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +36,32 @@ public class BulletController : MonoBehaviour
     // destroy bullet when colliding any 2D collider or rigidbogy
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // check if the 2D colliding object is an Enemy
-        if (collision != null && 
-        (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Asteroid"))
-        {
-            // remove 'damage' amount of life to the enemy
-            collision.gameObject.GetComponent<HealthManager>().GetHurt(damage);
+        if(playerBullet){
+          if (collision != null &&
+          (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Asteroid"))
+          {
+              Debug.Log("Enemy was hit ");
+              // remove 'damage' amount of life to the enemy
+              collision.gameObject.GetComponent<HealthManager>().GetHurt(damage);
+              Destroy(gameObject); // Destroys bullet object
+          }
+        }
+        if(enemyBullet){
+          //Debug.Log("This shit passes through the player");
+          if (collision != null && (collision.gameObject.tag == "Player")){
+              Debug.Log("Player was hit ");
+              collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(damage);
+              Destroy(gameObject);
+          }
+        }
+
+        if (collision != null && (collision.gameObject.tag == "Bullet")){
+            Debug.Log("Bullets Collide ");
             Destroy(gameObject);
         }
+
+
+        // check if the 2D colliding object is an Enemy
+
     }
 }
