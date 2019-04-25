@@ -6,6 +6,7 @@ public class HealthManager : MonoBehaviour
 {
     public float health;
     private float currentHealth;
+    public int scoreValue;
 
 
     // Use this for initialization
@@ -19,7 +20,8 @@ public class HealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+          FindObjectOfType<GameSession>().AddToScore(scoreValue);
+          Destroy(gameObject);
         }
     }
 
