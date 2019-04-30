@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SpawnController : MonoBehaviour
@@ -15,7 +16,7 @@ public class SpawnController : MonoBehaviour
 
     public float timeBetweenWaves;
     public float elapsedTime;
-
+    
     public int wave;
     // Use this for initialization
     void Start()
@@ -45,12 +46,14 @@ public class SpawnController : MonoBehaviour
         }
         if (numberSpawned >= numberEnemyPerWave)
         {
+
             if (elapsedTime >= timeBetweenWaves)
             {
                 elapsedTime = 0;
                 wave++;
                 numberEnemyPerWave = Mathf.Floor(numberEnemyPerWave * 1.041f * wave);
                 numberSpawned = 0;
+                return;
             }
             elapsedTime += Time.deltaTime;
         }
