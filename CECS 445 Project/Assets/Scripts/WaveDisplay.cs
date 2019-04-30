@@ -4,19 +4,23 @@ using System.Collections;
 
 public class WaveDisplay : MonoBehaviour
 {
-    Text waveText;
+    public Text waveText;
+    public Text waveNumber;
     SpawnController spawner;
 
     // Use this for initialization
     void Start()
     {
-        this.waveText = GetComponent<Text>();
+        //this.waveText = GetComponent<Text>();
+        //this.waveNumber = GetComponent<Text>();
         spawner = FindObjectOfType<SpawnController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        this.waveNumber.text = "Wave # " + spawner.wave.ToString();
+        Debug.Log(waveNumber.text);
         int countdown = (int)(spawner.timeBetweenSpawn - spawner.elapsedTime);
 
         if (spawner.numberSpawned >= spawner.numberEnemyPerWave && countdown > 0)

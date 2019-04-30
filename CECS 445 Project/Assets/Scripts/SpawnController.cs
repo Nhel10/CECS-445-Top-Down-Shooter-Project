@@ -21,7 +21,7 @@ public class SpawnController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        wave = 0;
+        wave = 1;
         numberEnemyPerWave = 10;
         numberSpawned = 0;
         timeBetweenWaves = 5;
