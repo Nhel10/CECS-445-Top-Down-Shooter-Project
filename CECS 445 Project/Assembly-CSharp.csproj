@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerHealthManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerScoreQuery.cs" />
     <Compile Include="Assets\Scripts\ScoreboardController.cs" />
     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
     <Compile Include="Assets\Scripts\ScoreDisplay.cs" />

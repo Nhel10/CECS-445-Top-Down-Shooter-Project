@@ -7,13 +7,14 @@ public class PlayerHealthManager : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public SimpleHealthBar healthBar;
-
+    public GameObject gameover;
 
     // Use this for initialization
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.UpdateBar( currentHealth, maxHealth );
+        gameover.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,6 +22,8 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            SoundManagerScript.PlaySound("PD");
+            gameover.SetActive(true);
             Destroy(gameObject);
         }
     }

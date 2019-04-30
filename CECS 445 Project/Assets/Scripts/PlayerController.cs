@@ -22,14 +22,16 @@ public class PlayerController : MonoBehaviour
     public KeyCode right;
     public KeyCode shoot;
     public KeyCode shield;
+    public KeyCode toggle;
 
     public double currencyAmount; // for the test
 
+    public GameObject ScoreboardController;
     // Start is called before the first frame update
     void Start()
     {
         this.player = GetComponent<Rigidbody2D>();
-        
+        ScoreboardController.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,6 +65,15 @@ public class PlayerController : MonoBehaviour
         if(forceField.isDeployed == true)
         {
             SoundManagerScript.PlaySound("SA");
+        }
+        //toggle scoreboard
+        if (Input.GetKeyDown(toggle))
+        {
+            ScoreboardController.SetActive(true);
+        }
+        if (Input.GetKeyUp(toggle))
+        {
+            ScoreboardController.SetActive(false);
         }
     }
 

@@ -7,12 +7,14 @@ public class HealthManager : MonoBehaviour
     public float health;
     private float currentHealth;
     public int scoreValue;
+   // public GameObject gameover;
 
 
     // Use this for initialization
     void Start()
     {
         currentHealth = health;
+        //gameover.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,9 +22,10 @@ public class HealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            SoundManagerScript.PlaySound("PD");
+            //SoundManagerScript.PlaySound("PD");
           FindObjectOfType<GameSession>().AddToScore(scoreValue);
-          Destroy(gameObject);
+            //gameover.SetActive(true);
+            Destroy(gameObject);
         }
     }
 

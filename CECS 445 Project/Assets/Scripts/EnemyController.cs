@@ -41,5 +41,6 @@ public class EnemyController : MonoBehaviour
         CurrencyController newLoot = Instantiate(currency, gameObject.transform.position, gameObject.transform.rotation) as CurrencyController;
         float mult = Random.Range(level / 2f, level * earning);
         newLoot.SetCurrencyAmount(mult * basicAmount);
+        ScoreCounter.score += 100;
     }
 }
