@@ -34,9 +34,10 @@ public class EnemyShooting : MonoBehaviour {
 		cooldownTimer -= Time.deltaTime;
 		
 		if( cooldownTimer <= 0 && player != null && Vector3.Distance(transform.position, player.position) < 4) {
-			// SHOOT!
-			//Debug.Log ("Enemy Pew!");
-			cooldownTimer = fireDelay;
+            // SHOOT!
+            //Debug.Log ("Enemy Pew!");
+                SoundManagerScript.PlaySound("EF");
+            cooldownTimer = fireDelay;
 			
 			Vector3 offset = transform.rotation * bulletOffset;
 			

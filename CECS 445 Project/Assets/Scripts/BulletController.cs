@@ -40,7 +40,8 @@ public class BulletController : MonoBehaviour
           if (collision != null &&
           (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Asteroid"))
           {
-              Debug.Log("Enemy was hit ");
+                SoundManagerScript.PlaySound("B2S");
+                Debug.Log("Enemy was hit ");
               // remove 'damage' amount of life to the enemy
               collision.gameObject.GetComponent<HealthManager>().GetHurt(damage);
               Destroy(gameObject); // Destroys bullet object
@@ -49,13 +50,15 @@ public class BulletController : MonoBehaviour
         if(enemyBullet){
           //Debug.Log("This shit passes through the player");
           if (collision != null && (collision.gameObject.tag == "Player")){
-              Debug.Log("Player was hit ");
+                SoundManagerScript.PlaySound("B2S");
+                Debug.Log("Player was hit ");
               collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(damage);
               Destroy(gameObject);
           }
         }
 
         if (collision != null && (collision.gameObject.tag == "Bullet")){
+            //no sound since lasers would fizzle out
             Debug.Log("Bullets Collide ");
             Destroy(gameObject);
         }

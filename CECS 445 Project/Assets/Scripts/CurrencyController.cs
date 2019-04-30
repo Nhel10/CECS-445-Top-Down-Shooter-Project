@@ -20,6 +20,7 @@ public class CurrencyController : MonoBehaviour
     {
         if (collision != null && collision.tag == "Player")
         {
+            SoundManagerScript.PlaySound("LP");
             collision.gameObject.GetComponent<PlayerController>().pickUpCurrency(currencyAmount);
             Destroy(gameObject);
         }

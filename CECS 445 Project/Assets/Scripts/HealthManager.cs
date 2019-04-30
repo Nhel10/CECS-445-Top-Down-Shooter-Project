@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            SoundManagerScript.PlaySound("PD");
           FindObjectOfType<GameSession>().AddToScore(scoreValue);
           Destroy(gameObject);
         }

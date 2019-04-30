@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
-
+        SoundManagerScript.PlaySound("ED");
         CurrencyController newLoot = Instantiate(currency, gameObject.transform.position, gameObject.transform.rotation) as CurrencyController;
         float mult = Random.Range(level / 2f, level * earning);
         newLoot.SetCurrencyAmount(mult * basicAmount);

@@ -29,12 +29,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         this.player = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //SoundManagerScript.PlaySound("PM");
         movement = new Vector2(0, Input.GetKey(forward) ? 1 : Input.GetKey(backward) ? -1 : 0) * speed;
         // get rotation of player
         rotation = (Input.GetKey(left) ? 1 : (Input.GetKey(right) ? -1 : 0)) * rotateSpeed;
@@ -42,17 +43,26 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(shoot))
         {
             weapon.isFiring = true;
+            if (weapon.isFiring == true)
+            {
+                SoundManagerScript.PlaySound("PF");
+            }
         } else if (Input.GetKeyUp(shoot))
         {
             weapon.isFiring = false;
         }
-
+        
         if (Input.GetKeyDown(shield))
         {
+            SoundManagerScript.PlaySound("SS");
             forceField.isDeployed = true;
         } else if (Input.GetKeyUp(shield))
         {
             forceField.isDeployed = false;
+        }
+        if(forceField.isDeployed == true)
+        {
+            SoundManagerScript.PlaySound("SA");
         }
     }
 
@@ -74,8 +84,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision != null)
         {
-            if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Asteroid")
             {
+                SoundManagerScript.PlaySound("A2S");
+                //collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage dealth
+                this.GetComponent<PlayerHealthManager>().GetHurt(1); // need to define amount of damage taken
+            }
+            if (collision.gameObject.tag == "Enemy")
+            {
+                SoundManagerScript.PlaySound("E2P");
                 //collision.gameObject.GetComponent<PlayerHealthManager>().GetHurt(5); // need to define amount of damage dealth
                 this.GetComponent<PlayerHealthManager>().GetHurt(1); // need to define amount of damage taken
             }
